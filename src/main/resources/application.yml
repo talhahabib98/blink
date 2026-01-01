@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: blink-url-shortener
+
+blink:
+  base-url: http://localhost:8080
+  short-code:
+    length: 7
+  default-expiry-days: 365
+
+logging:
+  level:
+    root: INFO
+    com.blink.urlshortener: INFO
