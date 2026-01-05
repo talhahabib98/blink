@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
@@ -25,7 +26,7 @@ public class ShortUrlController {
     }
 
     @PostMapping
-    public ResponseEntity<ShortUrlResponse> create(@RequestBody CreateShortUrlRequest request) {
+    public ResponseEntity<ShortUrlResponse> create(@Valid @RequestBody CreateShortUrlRequest request) {
         ShortUrl shortUrl = shortUrlService.createShortUrl(
                 request.getOriginalUrl(), request.getCustomAlias(), request.getExpiresInDays());
         ShortUrlResponse body = ShortUrlResponse.from(shortUrl, properties.getBaseUrl());
