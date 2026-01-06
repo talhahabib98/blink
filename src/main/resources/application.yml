@@ -10,6 +10,17 @@ blink:
   short-code:
     length: 7
   default-expiry-days: 365
+  cleanup:
+    interval-ms: 3600000
+  rate-limit:
+    enabled: true
+    requests-per-minute: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
 
 logging:
   level:
